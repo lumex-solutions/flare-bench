@@ -1,0 +1,154 @@
+{
+  "date": "2026-07-07T13:58:51.866Z",
+  "runId": "28869704224",
+  "commit": "92dc568f726e269d9c8568275bca5506fd57a33a",
+  "runner": "GitHub Actions 1000000130",
+  "cpus": 4,
+  "cpuModel": "AMD EPYC 7763 64-Core Processor",
+  "memGB": 15.6,
+  "node": "v24.18.0",
+  "sweeps": 5,
+  "method": "autocannon -c 100 -p 10 -d 40, one warm-up round and one measured round per framework",
+  "results": [
+    {
+      "name": "node-http",
+      "version": "v24.18.0",
+      "requests": {
+        "median": 48038.4,
+        "mean": 47936.32,
+        "min": 47058.4,
+        "max": 48331.2,
+        "stddev": 512.46,
+        "cvPct": 1.07
+      },
+      "latencyMs": {
+        "median": 20.3,
+        "mean": 20.36,
+        "min": 20.21,
+        "max": 20.75,
+        "stddev": 0.23,
+        "cvPct": 1.11
+      },
+      "throughputMb": {
+        "median": 8.57,
+        "mean": 8.55,
+        "min": 8.39,
+        "max": 8.62,
+        "stddev": 0.09,
+        "cvPct": 1.07
+      }
+    },
+    {
+      "name": "fastify",
+      "version": "5.10.0",
+      "requests": {
+        "median": 47043.2,
+        "mean": 47001.6,
+        "min": 46545.6,
+        "max": 47432,
+        "stddev": 372.34,
+        "cvPct": 0.79
+      },
+      "latencyMs": {
+        "median": 20.74,
+        "mean": 20.75,
+        "min": 20.56,
+        "max": 20.94,
+        "stddev": 0.16,
+        "cvPct": 0.75
+      },
+      "throughputMb": {
+        "median": 8.43,
+        "mean": 8.43,
+        "min": 8.34,
+        "max": 8.5,
+        "stddev": 0.07,
+        "cvPct": 0.8
+      }
+    },
+    {
+      "name": "flare",
+      "version": "0.3.0-next.7",
+      "requests": {
+        "median": 46886.4,
+        "mean": 46767.04,
+        "min": 46303.2,
+        "max": 47343.2,
+        "stddev": 419.34,
+        "cvPct": 0.9
+      },
+      "latencyMs": {
+        "median": 20.81,
+        "mean": 20.86,
+        "min": 20.59,
+        "max": 21.06,
+        "stddev": 0.19,
+        "cvPct": 0.9
+      },
+      "throughputMb": {
+        "median": 7.74,
+        "mean": 7.72,
+        "min": 7.64,
+        "max": 7.81,
+        "stddev": 0.07,
+        "cvPct": 0.9
+      }
+    },
+    {
+      "name": "hono",
+      "version": "4.12.28",
+      "requests": {
+        "median": 39963.2,
+        "mean": 39779.84,
+        "min": 38941.6,
+        "max": 40126.4,
+        "stddev": 483.44,
+        "cvPct": 1.22
+      },
+      "latencyMs": {
+        "median": 24.52,
+        "mean": 24.64,
+        "min": 24.39,
+        "max": 25.22,
+        "stddev": 0.34,
+        "cvPct": 1.36
+      },
+      "throughputMb": {
+        "median": 6.55,
+        "mean": 6.53,
+        "min": 6.39,
+        "max": 6.58,
+        "stddev": 0.08,
+        "cvPct": 1.22
+      }
+    },
+    {
+      "name": "express",
+      "version": "5.2.1",
+      "requests": {
+        "median": 27688.8,
+        "mean": 27614.48,
+        "min": 27051.2,
+        "max": 28010.8,
+        "stddev": 399.6,
+        "cvPct": 1.45
+      },
+      "latencyMs": {
+        "median": 35.62,
+        "mean": 35.71,
+        "min": 35.18,
+        "max": 36.47,
+        "stddev": 0.54,
+        "cvPct": 1.5
+      },
+      "throughputMb": {
+        "median": 4.94,
+        "mean": 4.92,
+        "min": 4.82,
+        "max": 5,
+        "stddev": 0.07,
+        "cvPct": 1.44
+      }
+    }
+  ]
+}

@@ -22,7 +22,17 @@ From GitHub's `ubuntu-latest` runner (4 vCPU on public repos, matching fastify's
 **Median of five runs** (`CV%` is the run-to-run spread):
 
 <!-- results:5x:start -->
-_No run yet._
+
+_2026-07-07 - Node v24.18.0 - GitHub Actions 1000000130 (4 vCPU, 15.6GB) - median of 5 sweeps_
+
+| Framework | Version | Requests/s | Latency (ms) | Throughput (Mb/s) | CV% |
+| :-- | --: | --: | --: | --: | --: |
+| node-http | v24.18.0 | 48038.4 | 20.3 | 8.57 | 1.07% |
+| fastify | 5.10.0 | 47043.2 | 20.74 | 8.43 | 0.79% |
+| flare | 0.3.0-next.7 | 46886.4 | 20.81 | 7.74 | 0.9% |
+| hono | 4.12.28 | 39963.2 | 24.52 | 6.55 | 1.22% |
+| express | 5.2.1 | 27688.8 | 35.62 | 4.94 | 1.45% |
+
 <!-- results:5x:end -->
 
 **Single run**, in fastify's table format:
