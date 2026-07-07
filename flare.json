@@ -1,0 +1,8 @@
+{
+  "host": {
+    "requestIdHeader": false
+  },
+  "log": {
+    "level": "fatal"
+  }
+}

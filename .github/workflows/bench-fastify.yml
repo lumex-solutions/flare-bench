@@ -1,0 +1,53 @@
+name: bench (fastify, single run)
+
+# A single run of the unmodified fastify/benchmarks tool, then fastify's own compare tool
+# writes benchmark-results.json and the README table. This mirrors fastify/benchmarks'
+# benchmarks.yml step for step; the only repository differences are the trimmed framework
+# list and the added Flare handler. Use bench (5x median) for the stable history feed.
+on:
+  workflow_dispatch:
+
+# Shared group with the 5x workflow so the two never push to the branch at the same time.
+concurrency:
+  group: bench
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  bench:
+    name: Benchmark (fastify parity)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          check-latest: true
+
+      - name: Install dependencies
+        run: npm i --ignore-scripts
+
+      - name: Run benchmarks
+        run: npm start y 100 10 40
+
+      - name: Compare results
+        run: |
+          node ./benchmark compare -t
+          node ./benchmark compare -u
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add benchmark-results.json README.md
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "bench: fastify-parity results run ${GITHUB_RUN_ID}"
+            git push
+          fi

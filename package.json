@@ -1,0 +1,28 @@
+{
+  "name": "flare-bench",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "HTTP framework overhead benchmark: Flare vs node-http, Fastify, Hono, Express, on the fastify/benchmarks methodology.",
+  "scripts": {
+    "start": "node benchmark.js",
+    "compare": "node benchmark.js compare --",
+    "aggregate": "node aggregate.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@flare-ts/core": "0.3.0-next.7",
+    "@flare-ts/lib": "0.3.0-next.7",
+    "@hono/node-server": "^2.0.1",
+    "autocannon": "^8.0.0",
+    "autocannon-compare": "^0.4.0",
+    "chalk": "^5.2.0",
+    "cli-table": "^0.3.11",
+    "commander": "^15.0.0",
+    "express": "^5.2.1",
+    "fastify": "^5.0.0",
+    "hono": "^4.0.1",
+    "inquirer": "^12.1.0",
+    "ora": "^9.0.0"
+  }
+}
