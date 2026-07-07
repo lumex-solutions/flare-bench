@@ -91,13 +91,13 @@ its `cpus` and `memGB` so the machine is verifiable.
 
 * __Machine:__ linux x64 | 4 vCPUs | 15.6GB Mem
 * __Node:__ `v24.18.0`
-* __Run:__ Tue Jul 07 2026 03:53:47 GMT+0000 (Coordinated Universal Time)
+* __Run:__ Tue Jul 07 2026 04:06:40 GMT+0000 (Coordinated Universal Time)
 * __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure)
 
 |           | Version      | Router | Requests/s | Latency (ms) | Throughput/Mb |
 | :--       | --:          | --:    | :-:        | --:          | --:           |
-| node-http | v24.18.0     | ✗      | 48896.8    | 19.97        | 8.72          |
-| fastify   | 5.10.0       | ✓      | 48382.4    | 20.21        | 8.67          |
-| flare     | 0.3.0-next.7 | ✓      | 47680.8    | 20.55        | 7.87          |
-| hono      | 4.12.28      | ✓      | 39724.0    | 24.66        | 6.52          |
-| express   | 5.2.1        | ✓      | 27502.4    | 35.85        | 4.90          |
+| node-http | v24.18.0     | ✗      | 48248.0    | 20.20        | 8.60          |
+| fastify   | 5.10.0       | ✓      | 47284.8    | 20.62        | 8.48          |
+| flare     | 0.3.0-next.7 | ✓      | 46554.4    | 20.97        | 7.68          |
+| hono      | 4.12.28      | ✓      | 40131.2    | 24.40        | 6.58          |
+| express   | 5.2.1        | ✓      | 26658.4    | 37.00        | 4.75          |
