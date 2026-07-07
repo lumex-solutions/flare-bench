@@ -28,7 +28,17 @@ _No run yet._
 **Single run**, in fastify's table format:
 
 <!-- results:single:start -->
-_No run yet._
+
+_2026-07-07 - Node v24.18.0 - 4 vCPU, 15.6GB - single run_
+
+| Framework | Version | Requests/s | Latency (ms) | Throughput (Mb/s) |
+| :-- | --: | --: | --: | --: |
+| node-http | v24.18.0 | 47304.8 | 20.64 | 8.44 |
+| fastify | 5.10.0 | 46394.4 | 21.04 | 8.32 |
+| flare | 0.3.0-next.7 | 45796.0 | 21.32 | 7.56 |
+| hono | 4.12.28 | 38618.4 | 25.40 | 6.33 |
+| express | 5.2.1 | 27132.0 | 36.35 | 4.84 |
+
 <!-- results:single:end -->
 
 Shared runners are noisy, so compare gaps within one run, not absolutes across runs or against
