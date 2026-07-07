@@ -87,55 +87,17 @@ its `cpus` and `memGB` so the machine is verifiable.
   for downstream consumers.
 - [`bench (fastify, single run)`](.github/workflows/bench-fastify.yml) mirrors
   fastify/benchmarks' own workflow step for step: one run, then `compare` writes
-  `benchmark-results.json` and refreshes the `# Benchmarks` table at the bottom of this README.
+  `benchmark-results.json` and refreshes the `# Benchmarks
 
-## Results history
+* __Machine:__ linux x64 | 4 vCPUs | 15.6GB Mem
+* __Node:__ `v24.18.0`
+* __Run:__ Tue Jul 07 2026 03:53:47 GMT+0000 (Coordinated Universal Time)
+* __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure)
 
-Each run writes one file, `history/<date>-<runId>.json`, holding the environment, the method,
-and per-framework statistics:
-
-```json
-{
-  "date": "2026-07-06T00:00:00.000Z",
-  "runId": "123456789",
-  "commit": "…",
-  "runner": "GitHub Actions 3",
-  "cpus": 4,
-  "cpuModel": "…",
-  "memGB": 15.6,
-  "node": "v24.x",
-  "sweeps": 5,
-  "method": "autocannon -c 100 -p 10 -d 40, one warm-up round and one measured round per framework",
-  "results": [
-    {
-      "name": "flare",
-      "version": "0.3.0-next.7",
-      "requests": { "median": 0, "mean": 0, "min": 0, "max": 0, "stddev": 0, "cvPct": 0 },
-      "latencyMs": { "median": 0, "mean": 0, "min": 0, "max": 0, "stddev": 0, "cvPct": 0 },
-      "throughputMb": { "median": 0, "mean": 0, "min": 0, "max": 0, "stddev": 0, "cvPct": 0 }
-    }
-  ]
-}
-```
-
-`results` is sorted fastest first by median requests/s. `cvPct` is the coefficient of
-variation across sweeps: a low value means the run was stable and the median is trustworthy.
-
-## Caveats
-
-- GitHub-hosted runners are shared. They remove thermal throttling and background-app noise,
-  but a busy neighbour still adds variance; the five-sweep median and the reported `cvPct`
-  exist to expose it. Compare gaps between frameworks in the same run, not absolute figures
-  across runs.
-- These are not fastify's official numbers. Same methodology, different field and machine.
-
-## Credit and license
-
-The benchmark tool and handlers are derived from
-[fastify/benchmarks](https://github.com/fastify/benchmarks), MIT licensed. This repository
-keeps that license; see [LICENSE](LICENSE).
-
-# Benchmarks
-
-The `bench (fastify, single run)` workflow maintains this section. Until it has run, the table
-is empty.
+|           | Version      | Router | Requests/s | Latency (ms) | Throughput/Mb |
+| :--       | --:          | --:    | :-:        | --:          | --:           |
+| node-http | v24.18.0     | ✗      | 48896.8    | 19.97        | 8.72          |
+| fastify   | 5.10.0       | ✓      | 48382.4    | 20.21        | 8.67          |
+| flare     | 0.3.0-next.7 | ✓      | 47680.8    | 20.55        | 7.87          |
+| hono      | 4.12.28      | ✓      | 39724.0    | 24.66        | 6.52          |
+| express   | 5.2.1        | ✓      | 27502.4    | 35.85        | 4.90          |
