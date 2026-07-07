@@ -1,9 +1,9 @@
 name: bench (fastify, single run)
 
-# A single run of the unmodified fastify/benchmarks tool, then fastify's own compare tool
-# writes benchmark-results.json and the README table. This mirrors fastify/benchmarks'
-# benchmarks.yml step for step; the only repository differences are the trimmed framework
-# list and the added Flare handler. Use bench (5x median) for the stable history feed.
+# A single run of the unmodified fastify/benchmarks tool. `compare -t` writes
+# benchmark-results.json in fastify's exact format; render-single.mjs puts that into the
+# README's single-run section. The measurement and the JSON output are fastify's; only the
+# README rendering is ours. Use bench (5x median) for the stable history feed.
 on:
   workflow_dispatch:
 
@@ -35,10 +35,10 @@ jobs:
       - name: Run benchmarks
         run: npm start y 100 10 40
 
-      - name: Compare results
+      - name: Compare results and render the single-run table
         run: |
           node ./benchmark compare -t
-          node ./benchmark compare -u
+          node render-single.mjs
 
       - name: Commit results
         run: |

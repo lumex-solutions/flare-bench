@@ -106,17 +106,32 @@ const stamp = record.date.slice(0, 10)
 const outFile = join(historyDir, `${stamp}-${runId}.json`)
 writeFileSync(outFile, JSON.stringify(record, null, 2))
 
-// Markdown for the CI step summary. A plain table, ranked, medians as the headline figure.
-const lines = []
-lines.push(`## Benchmark results (${record.sweeps} sweeps, median)`)
-lines.push('')
-lines.push(`Node ${record.node} on ${record.runner} (${record.cpus} vCPU, ${record.memGB}GB). Method: ${record.method}.`)
-lines.push('')
-lines.push('| Framework | Version | Requests/s | Latency (ms) | Throughput (Mb/s) | CV% |')
-lines.push('| :-- | --: | --: | --: | --: | --: |')
+// Build the median table once; it feeds both the CI step summary and the README section.
+const tableLines = []
+tableLines.push(`_${record.date.slice(0, 10)} - Node ${record.node} - ${record.runner} (${record.cpus} vCPU, ${record.memGB}GB) - median of ${record.sweeps} sweeps_`)
+tableLines.push('')
+tableLines.push('| Framework | Version | Requests/s | Latency (ms) | Throughput (Mb/s) | CV% |')
+tableLines.push('| :-- | --: | --: | --: | --: | --: |')
 for (const r of results) {
-  lines.push(`| ${r.name} | ${r.version ?? ''} | ${r.requests.median} | ${r.latencyMs.median} | ${r.throughputMb.median} | ${r.requests.cvPct}% |`)
+  tableLines.push(`| ${r.name} | ${r.version ?? ''} | ${r.requests.median} | ${r.latencyMs.median} | ${r.throughputMb.median} | ${r.requests.cvPct}% |`)
 }
-lines.push('')
-lines.push(`Saved: \`${outFile}\``)
-console.log(lines.join('\n'))
+const tableMd = tableLines.join('\n')
+
+// CI step summary.
+console.log(`## Benchmark results (${record.sweeps} sweeps, median)\n\n${tableMd}\n\nSaved: \`${outFile}\``)
+
+// Refresh the 5x section of README.md, between its markers, when present. Only the marked
+// region is touched, so the fastify single-run table below it is left alone.
+const START = '<!-- results:5x:start -->'
+const END = '<!-- results:5x:end -->'
+try {
+  const md = readFileSync('README.md', 'utf8')
+  const s = md.indexOf(START)
+  const e = md.indexOf(END)
+  if (s !== -1 && e !== -1 && e > s) {
+    const block = `${START}\n\n${tableMd}\n\n${END}`
+    writeFileSync('README.md', md.slice(0, s) + block + md.slice(e + END.length))
+  }
+} catch {
+  // No README to update; skip.
+}
