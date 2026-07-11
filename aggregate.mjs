@@ -104,7 +104,10 @@ const record = {
 
 const stamp = record.date.slice(0, 10)
 const outFile = join(historyDir, `${stamp}-${runId}.json`)
-writeFileSync(outFile, JSON.stringify(record, null, 2))
+const recordJson = JSON.stringify(record, null, 2)
+writeFileSync(outFile, recordJson)
+// Stable URL for docs and other consumers (raw.githubusercontent.com/.../history/latest.json).
+writeFileSync(join(historyDir, 'latest.json'), recordJson)
 
 // Build the median table once; it feeds both the CI step summary and the README section.
 const tableLines = []

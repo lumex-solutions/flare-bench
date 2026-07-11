@@ -44,7 +44,20 @@ jobs:
       - name: Aggregate and summarize
         run: node aggregate.mjs runs history >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Upload results artifact
+        # Safety net: the raw sweeps and the aggregated record survive even if the push fails.
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bench-results-${{ github.run_id }}
+          path: |
+            runs/
+            history/
+          if-no-files-found: ignore
+
       - name: Commit results history
+        # The job runs ~35 minutes, so the checkout is stale by push time whenever anything
+        # landed on main meanwhile; rebase our one result commit on top before pushing.
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -53,5 +66,17 @@ jobs:
             echo "nothing to commit"
           else
             git commit -m "bench: results run ${GITHUB_RUN_ID}"
-            git push
+            pushed=false
+            for i in 1 2 3; do
+              if git pull --rebase origin main && git push; then
+                pushed=true
+                break
+              fi
+              echo "push attempt $i failed; retrying"
+              sleep 5
+            done
+            if [ "$pushed" != "true" ]; then
+              echo "all push attempts failed; results are in the run artifact"
+              exit 1
+            fi
           fi
