@@ -23,15 +23,15 @@ From GitHub's `ubuntu-latest` runner (4 vCPU on public repos, matching fastify's
 
 <!-- results:5x:start -->
 
-_2026-07-07 - Node v24.18.0 - GitHub Actions 1000000130 (4 vCPU, 15.6GB) - median of 5 sweeps_
+_2026-07-11 - Node v24.18.0 - GitHub Actions 1000000133 (4 vCPU, 15.6GB) - median of 5 sweeps_
 
 | Framework | Version | Requests/s | Latency (ms) | Throughput (Mb/s) | CV% |
 | :-- | --: | --: | --: | --: | --: |
-| node-http | v24.18.0 | 48038.4 | 20.3 | 8.57 | 1.07% |
-| fastify | 5.10.0 | 47043.2 | 20.74 | 8.43 | 0.79% |
-| flare | 0.3.0-next.7 | 46886.4 | 20.81 | 7.74 | 0.9% |
-| hono | 4.12.28 | 39963.2 | 24.52 | 6.55 | 1.22% |
-| express | 5.2.1 | 27688.8 | 35.62 | 4.94 | 1.45% |
+| node-http | v24.18.0 | 89068.8 | 10.75 | 15.88 | 1.78% |
+| flare | 0.3.0-next.8 | 86715.2 | 11.07 | 14.31 | 1.31% |
+| fastify | 5.10.0 | 85700.8 | 11.17 | 15.36 | 0.82% |
+| hono | 4.12.28 | 75177.61 | 12.8 | 12.33 | 1.63% |
+| express | 5.2.1 | 53887.2 | 18.06 | 9.61 | 2.87% |
 
 <!-- results:5x:end -->
 
