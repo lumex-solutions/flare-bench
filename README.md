@@ -39,15 +39,15 @@ _2026-07-11 - Node v24.18.0 - GitHub Actions 1000000133 (4 vCPU, 15.6GB) - media
 
 <!-- results:single:start -->
 
-_2026-07-11 - Node v24.18.0 - 4 vCPU, 15.6GB - single run_
+_2026-07-14 - Node v24.18.0 - 6 vCPU, 15.4GB - single run_
 
 | Framework | Version | Requests/s | Latency (ms) | Throughput (Mb/s) |
 | :-- | --: | --: | --: | --: |
-| node-http | v24.18.0 | 49257.6 | 19.86 | 8.78 |
-| fastify | 5.10.0 | 48852.0 | 20.05 | 8.76 |
-| flare | 0.3.0-next.8 | 48569.6 | 20.20 | 8.01 |
-| hono | 4.12.28 | 41155.2 | 23.79 | 6.75 |
-| express | 5.2.1 | 27933.2 | 35.29 | 4.98 |
+| fastify | 5.10.0 | 155112.0 | 5.97 | 27.81 |
+| node-http | v24.18.0 | 130881.6 | 7.15 | 23.34 |
+| flare | 0.3.0-next.8 | 123238.4 | 7.64 | 20.33 |
+| hono | 4.12.28 | 112511.2 | 8.38 | 18.45 |
+| express | 5.2.1 | 96056.0 | 9.89 | 17.13 |
 
 <!-- results:single:end -->
 
