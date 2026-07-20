@@ -39,15 +39,15 @@ _2026-07-14 - Node v24.18.0 - blacksmith-01kxf8ghc28w5swxzep87d4de9-4vcpu (6 vCP
 
 <!-- results:single:start -->
 
-_2026-07-14 - Node v24.18.0 - 6 vCPU, 15.4GB - single run_
+_2026-07-20 - Node v24.18.0 - 4 vCPU, 15.6GB - single run_
 
 | Framework | Version | Requests/s | Latency (ms) | Throughput (Mb/s) |
 | :-- | --: | --: | --: | --: |
-| flare | 0.3.0-next.8 | 157752.8 | 5.94 | 26.03 |
-| fastify | 5.10.0 | 152640.8 | 6.10 | 27.37 |
-| node-http | v24.18.0 | 145202.4 | 6.41 | 25.90 |
-| hono | 4.12.28 | 121448.8 | 7.74 | 19.92 |
-| express | 5.2.1 | 91001.2 | 10.49 | 16.23 |
+| flare | 0.3.0-next.8 | 44965.6 | 21.76 | 7.42 |
+| fastify | 5.10.0 | 44884.8 | 21.82 | 8.05 |
+| node-http | v24.18.0 | 44081.6 | 22.20 | 7.86 |
+| hono | 4.12.28 | 37316.0 | 26.31 | 6.12 |
+| express | 5.2.1 | 26040.8 | 37.90 | 4.64 |
 
 <!-- results:single:end -->
 
