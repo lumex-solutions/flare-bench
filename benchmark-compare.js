@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+
 
 import { platform, arch, cpus, totalmem } from 'node:os'
 import { program } from 'commander'
