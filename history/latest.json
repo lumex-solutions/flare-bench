@@ -1,153 +1,153 @@
 {
-  "date": "2026-07-20T04:25:04.384Z",
-  "runId": "29715311277",
-  "commit": "be88199232b10d4876177be07200a459bae5f758",
-  "runner": "GitHub Actions 1000000145",
+  "date": "2026-11-02T01:46:51.413Z",
+  "runId": "41371314816",
+  "commit": "d4e06613d079c7775f5449b0f708732d213e6a5b",
+  "runner": "GitHub Actions 1000000184",
   "cpus": 4,
-  "cpuModel": "AMD EPYC 7763 64-Core Processor",
+  "cpuModel": "AMD EPYC 9V74 80-Core Processor",
   "memGB": 15.6,
-  "node": "v24.18.0",
+  "node": "v24.22.2",
   "sweeps": 5,
   "method": "autocannon -c 100 -p 10 -d 40, one warm-up round and one measured round per framework",
   "results": [
     {
       "name": "node-http",
-      "version": "v24.18.0",
+      "version": "v24.22.2",
       "requests": {
-        "median": 47876.8,
-        "mean": 47817.28,
-        "min": 47293.6,
-        "max": 48165.6,
-        "stddev": 357.77,
-        "cvPct": 0.75
+        "median": 83548.8,
+        "mean": 83405.12,
+        "min": 82516.8,
+        "max": 84144,
+        "stddev": 657.98,
+        "cvPct": 0.79
       },
       "latencyMs": {
-        "median": 20.38,
-        "mean": 20.41,
-        "min": 20.26,
-        "max": 20.63,
-        "stddev": 0.15,
-        "cvPct": 0.71
+        "median": 11.47,
+        "mean": 11.46,
+        "min": 11.3,
+        "max": 11.61,
+        "stddev": 0.12,
+        "cvPct": 1.05
       },
       "throughputMb": {
-        "median": 8.54,
-        "mean": 8.53,
-        "min": 8.43,
-        "max": 8.59,
-        "stddev": 0.06,
-        "cvPct": 0.74
-      }
-    },
-    {
-      "name": "flare",
-      "version": "0.3.0-next.8",
-      "requests": {
-        "median": 47560.8,
-        "mean": 47545.76,
-        "min": 46948,
-        "max": 48174.4,
-        "stddev": 435.24,
-        "cvPct": 0.92
-      },
-      "latencyMs": {
-        "median": 20.52,
-        "mean": 20.53,
-        "min": 20.3,
-        "max": 20.77,
-        "stddev": 0.17,
-        "cvPct": 0.81
-      },
-      "throughputMb": {
-        "median": 7.85,
-        "mean": 7.84,
-        "min": 7.75,
-        "max": 7.95,
-        "stddev": 0.07,
-        "cvPct": 0.91
+        "median": 14.9,
+        "mean": 14.87,
+        "min": 14.72,
+        "max": 15.01,
+        "stddev": 0.12,
+        "cvPct": 0.79
       }
     },
     {
       "name": "fastify",
       "version": "5.10.0",
       "requests": {
-        "median": 46732,
-        "mean": 46913.44,
-        "min": 46473.6,
-        "max": 47458.4,
-        "stddev": 458.75,
-        "cvPct": 0.98
+        "median": 80675.2,
+        "mean": 80756.24,
+        "min": 79876.8,
+        "max": 81334.4,
+        "stddev": 581.59,
+        "cvPct": 0.72
       },
       "latencyMs": {
-        "median": 20.87,
-        "mean": 20.79,
-        "min": 20.55,
-        "max": 20.99,
-        "stddev": 0.21,
+        "median": 12.01,
+        "mean": 11.98,
+        "min": 11.81,
+        "max": 12.13,
+        "stddev": 0.12,
         "cvPct": 0.99
       },
       "throughputMb": {
-        "median": 8.38,
-        "mean": 8.41,
-        "min": 8.33,
-        "max": 8.51,
-        "stddev": 0.08,
-        "cvPct": 0.98
+        "median": 14.46,
+        "mean": 14.48,
+        "min": 14.32,
+        "max": 14.58,
+        "stddev": 0.1,
+        "cvPct": 0.72
+      }
+    },
+    {
+      "name": "flare",
+      "version": "0.4.0",
+      "requests": {
+        "median": 80307.2,
+        "mean": 80189.12,
+        "min": 79204.8,
+        "max": 81465.61,
+        "stddev": 857.28,
+        "cvPct": 1.07
+      },
+      "latencyMs": {
+        "median": 12.09,
+        "mean": 12.09,
+        "min": 11.94,
+        "max": 12.23,
+        "stddev": 0.11,
+        "cvPct": 0.92
+      },
+      "throughputMb": {
+        "median": 13.25,
+        "mean": 13.23,
+        "min": 13.07,
+        "max": 13.44,
+        "stddev": 0.14,
+        "cvPct": 1.07
       }
     },
     {
       "name": "hono",
       "version": "4.12.28",
       "requests": {
-        "median": 40005.6,
-        "mean": 39958.72,
-        "min": 39476,
-        "max": 40600,
-        "stddev": 471.45,
-        "cvPct": 1.18
+        "median": 70205.2,
+        "mean": 70188.72,
+        "min": 69480.4,
+        "max": 70690.8,
+        "stddev": 458.6,
+        "cvPct": 0.65
       },
       "latencyMs": {
-        "median": 24.51,
-        "mean": 24.53,
-        "min": 24.11,
-        "max": 24.85,
-        "stddev": 0.31,
-        "cvPct": 1.26
+        "median": 13.74,
+        "mean": 13.77,
+        "min": 13.66,
+        "max": 13.97,
+        "stddev": 0.12,
+        "cvPct": 0.86
       },
       "throughputMb": {
-        "median": 6.56,
-        "mean": 6.55,
-        "min": 6.48,
-        "max": 6.66,
+        "median": 11.52,
+        "mean": 11.51,
+        "min": 11.4,
+        "max": 11.6,
         "stddev": 0.08,
-        "cvPct": 1.18
+        "cvPct": 0.66
       }
     },
     {
       "name": "express",
       "version": "5.2.1",
       "requests": {
-        "median": 27687.6,
-        "mean": 27771.6,
-        "min": 27414.4,
-        "max": 28282,
-        "stddev": 321.81,
-        "cvPct": 1.16
+        "median": 48886.4,
+        "mean": 48794.24,
+        "min": 48188.8,
+        "max": 49134.4,
+        "stddev": 359.21,
+        "cvPct": 0.74
       },
       "latencyMs": {
-        "median": 35.6,
-        "mean": 35.5,
-        "min": 34.85,
-        "max": 35.97,
-        "stddev": 0.41,
-        "cvPct": 1.17
+        "median": 20.01,
+        "mean": 20.02,
+        "min": 19.87,
+        "max": 20.26,
+        "stddev": 0.15,
+        "cvPct": 0.73
       },
       "throughputMb": {
-        "median": 4.94,
-        "mean": 4.95,
-        "min": 4.89,
-        "max": 5.04,
+        "median": 8.72,
+        "mean": 8.7,
+        "min": 8.59,
+        "max": 8.76,
         "stddev": 0.06,
-        "cvPct": 1.16
+        "cvPct": 0.74
       }
     }
   ]
